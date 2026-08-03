@@ -78,7 +78,7 @@ const $=s=>document.querySelector(s);
 
 async function load(){
   if(DATA) return DATA;
-  const r=await fetch("stations.json");
+  const r=await fetch("stations.json",{cache:"no-cache"});
   DATA=await r.json();
   $("#foot").innerHTML+=`<br>站點資料更新:${DATA.updated},共 ${DATA.stations.length} 站`;
   return DATA;
