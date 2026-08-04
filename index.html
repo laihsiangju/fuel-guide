@@ -48,6 +48,17 @@
     transition:transform .2s;font-weight:400}
   details.card[open] summary::after{transform:rotate(90deg)}
   details.card[open] summary{margin-bottom:8px}
+  .goods-scroll{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;padding:2px 2px 6px;margin:0 -4px}
+  .goods-scroll::-webkit-scrollbar{display:none}
+  .gcard{flex:0 0 146px;scroll-snap-align:start;background:var(--bg);
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    text-decoration:none;color:var(--ink);display:flex;flex-direction:column}
+  .gcard img,.gcard .ph{width:146px;height:146px;object-fit:cover;display:block;
+    background:var(--accent-soft)}
+  .gcard .ph{display:flex;align-items:center;justify-content:center;font-size:2.2rem}
+  .gcard .gname{font-weight:700;font-size:.88rem;padding:8px 10px 2px;line-height:1.35}
+  .gcard .gnote{color:var(--sub);font-size:.78rem;padding:0 10px 10px;line-height:1.45}
 </style>
 </head>
 <body>
@@ -60,7 +71,7 @@
   <section class="card">
     <h2>📊 本週油價 <span class="badge">不調整</span></h2>
     <p style="margin:4px 0 0">中油公告:本週汽油、柴油價格均不調整。<br>
-    <strong>👉 本週油價不調整，想加就加，不用等更便宜！</strong></p>
+    <strong>👉 油價凍漲！抓緊機會加好加滿，本週不必趕著加油囉。</strong></p>
     <table>
       <tr><th>油種</th><th class="num">牌價(元/公升)</th></tr>
       <tr><td>92 無鉛</td><td class="num">30.5</td></tr>
@@ -98,20 +109,20 @@
     <p style="margin:0">玉山 Ubear 卡 × 行動支付:綁定行動支付於中油加油最高 10% 回饋——適合月加油量中等、不想儲值綁定單一體系的人。</p>
   </details>
 
-  <details class="card">
+  <details class="card" open>
     <summary>🛒 司機好物</summary>
-    <ul>
-      <li><a href="https://s.shopee.tw/111r2UP16t" target="_blank" rel="nofollow sponsored" style="color:var(--accent);font-weight:700">車用手機架</a>:導航、接單、看路況,手機有個穩的家,不擋視線不亂晃</li>
-      <li><a href="https://s.shopee.tw/7fYkys3h0H" target="_blank" rel="nofollow sponsored" style="color:var(--accent);font-weight:700">玻璃撥水鍍膜劑</a>:雨天視線差最危險,鍍一次雨珠自己滑走,雨刷少開兩段</li>
-      <li><a href="https://s.shopee.tw/9fJpMec8Kx" target="_blank" rel="nofollow sponsored" style="color:var(--accent);font-weight:700">方向盤置物台</a>:路邊吃飯、填單子的小桌板,跑整天的人懂</li>
-      <li><a href="https://s.shopee.tw/9pdFYzE8tt" target="_blank" rel="nofollow sponsored" style="color:var(--accent);font-weight:700">杯架掛鉤</a>:飲料袋、早餐袋掛好,不再倒在腳踏墊上</li>
-      <li><a href="https://s.shopee.tw/2gA51qapvs" target="_blank" rel="nofollow sponsored" style="color:var(--accent);font-weight:700">車用垃圾桶</a>:一天十幾小時在車上,垃圾也需要一個家</li>
-    </ul>
+    <div class="goods-scroll">
+      <a class="gcard" href="https://s.shopee.tw/111r2UP16t" target="_blank" rel="nofollow sponsored"><div class="ph">🛒</div><div class="gname">車用手機架</div><div class="gnote">導航、接單、看路況,手機有個穩的家,不擋視線不亂晃</div></a>
+      <a class="gcard" href="https://s.shopee.tw/7fYkys3h0H" target="_blank" rel="nofollow sponsored"><div class="ph">🛒</div><div class="gname">玻璃撥水鍍膜劑</div><div class="gnote">雨天視線差最危險,鍍一次雨珠自己滑走,雨刷少開兩段</div></a>
+      <a class="gcard" href="https://s.shopee.tw/9fJpMec8Kx" target="_blank" rel="nofollow sponsored"><div class="ph">🛒</div><div class="gname">方向盤置物台</div><div class="gnote">路邊吃飯、填單子的小桌板,跑整天的人懂</div></a>
+      <a class="gcard" href="https://s.shopee.tw/9pdFYzE8tt" target="_blank" rel="nofollow sponsored"><div class="ph">🛒</div><div class="gname">杯架掛鉤</div><div class="gnote">飲料袋、早餐袋掛好,不再倒在腳踏墊上</div></a>
+      <a class="gcard" href="https://s.shopee.tw/2gA51qapvs" target="_blank" rel="nofollow sponsored"><div class="ph">🛒</div><div class="gname">車用垃圾桶</div><div class="gnote">一天十幾小時在車上,垃圾也需要一個家</div></a>
+    </div>
   </details>
 
   <p class="meta">
     資料來源:中油官方牌價、台亞石油促銷公告、各銀行/支付官方活動頁,優惠以各站現場公告為準。頁內含合作推廣連結。<br>
-    更新時間:2026-08-04 15:34|每週日中午油價公告後更新,週一 00:00 新牌價生效
+    更新時間:2026-08-04 15:40|每週日中午油價公告後更新,週一 00:00 新牌價生效
   </p>
 </div>
 </body>
