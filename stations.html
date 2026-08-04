@@ -59,6 +59,7 @@
     <span class="chip" data-f="fpg">台塑體系(週三券)</span>
     <span class="chip" data-f="cpc-d">中油直營(中油Pay)</span>
     <span class="chip" data-f="self">可自助</span>
+    <span class="chip" data-f="diesel">柴油車</span>
   </div>
   <div id="list"></div>
 
@@ -94,17 +95,19 @@ function render(){
   if(filter==="fpg") st=st.filter(s=>s.b==="台塑體系");
   if(filter==="cpc-d") st=st.filter(s=>s.b==="中油直營");
   if(filter==="self") st=st.filter(s=>s.self===1);
+  if(filter==="diesel") st=st.filter(s=>s.d===1);
   const near=st.map(s=>({...s,d:hav(mypos[0],mypos[1],s.lat,s.lng)}))
     .sort((a,b)=>a.d-b.d).slice(0,10);
   $("#list").innerHTML=near.map(s=>{
     const promos=(PROMOS[s.b]||[]).map(p=>`<span class="tag${p.w?" warn":""}">${p.t}</span>`).join("");
     const selfTag=s.self===1?'<span class="tag">自助</span>':"";
+    const dTag=s.d===1?(s.ds===1?'<span class="tag">柴油·可自助</span>':'<span class="tag">柴油</span>'):"";
     const pay=(s.pay||[]).map(p=>`<span class="tag">${p}</span>`).join("");
     const gmap=`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(s.a)}`;
     return `<div class="card">
       <div class="row1"><span class="name">${s.n}<span style="font-weight:400;color:var(--sub);font-size:.85rem"> ${s.b}</span></span>
         <span class="dist">${s.d<1?(s.d*1000).toFixed(0)+" m":s.d.toFixed(1)+" km"}</span></div>
-      <div class="tags">${promos}${selfTag}${pay}</div>
+      <div class="tags">${promos}${selfTag}${dTag}${pay}</div>
       <div class="row1"><span class="addr">${s.a}${s.hours?"|"+s.hours:""}</span>
         <a class="nav" href="${gmap}" target="_blank">導航 ›</a></div>
     </div>`;
